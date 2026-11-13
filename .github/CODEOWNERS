@@ -1,8 +1,0 @@
-# ディレクトリ <名前>/ の中身は namespace exhibit-<名前> に入る。
-# main は保護されていて（cniajp/jisabakan の terraform/github_repos.tf）、PR にはコードオーナーのうち作者以外の承認が要る。
-# 出展者を足すときは、その出展者のディレクトリに本人の GitHub ユーザーと Team を書く:
-#   /pageswiki/  @<出展者の GitHub ユーザー> @cniajp/jisabakan
-# 後に書いた行が優先される。出展者の行は * より後に書く。
-
-*        @cniajp/jisabakan
-/trial/  @cniajp/jisabakan
