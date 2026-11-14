@@ -22,11 +22,11 @@ spec:
     allowedRoutes:
       namespaces:
         from: Same
-    hostname: toka.jisaba.sh
+    hostname: rproxy.jisaba.sh
     tls:
       mode: Terminate
       certificateRefs:
-      - name: toka-jisaba-sh-tls
+      - name: rproxy-jisaba-sh-tls
   - name: tcp-demo
     protocol: TCP
     port: 18080

@@ -26,8 +26,8 @@ toka さんはこのディレクトリのアプリ・Gateway・Route を編集�
 - Gateway の名前 `toka`、GatewayClass `rproxy`、IP `202.226.7.203` は固定です。
 - listener は 80・443・10000〜19999 番。Gateway の listener を追加し、対応する Route の `sectionName` を合わせると、そのポートを公開する構成になります。
 - Route はこの Gateway に接続し、同じ namespace の Service だけを転送先にします。
-- HTTPS は NOC が用意する `toka.jisaba.sh` 用の `toka-jisaba-sh-tls` を使います。追加ドメインは [NOC へ依頼](../docs/publishing.md)してください。
-- 443 の listener は `toka.jisaba.sh` 専用です。80 と TCP/UDP のデモは IP でも試せます。
+- HTTPS は NOC が用意する `rproxy.jisaba.sh` 用の `rproxy-jisaba-sh-tls` を使います。追加ドメインは [NOC へ依頼](../docs/publishing.md)してください。
+- 443 の listener は `rproxy.jisaba.sh` 専用です。80 と TCP/UDP のデモは IP でも試せます。
 - Git から消したリソースはクラスタからも削除されます。秘密情報はコミットしないでください。
 
 ## 反映の確認
@@ -46,7 +46,7 @@ Gateway の `Accepted` / `Programmed`、Route の `Accepted` / `ResolvedRefs` �
 curl --fail http://202.226.7.203/
 curl --fail http://202.226.7.203:18080/
 # DNS と証明書の設定完了後
-curl --fail https://toka.jisaba.sh/
+curl --fail https://rproxy.jisaba.sh/
 ```
 
 UDP の確認例（Python 3）:
