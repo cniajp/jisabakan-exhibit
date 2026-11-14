@@ -1,6 +1,6 @@
 # Omni にログインして kubectl を使う
 
-自鯖缶の Kubernetes は、Omni（https://omni.jisaba.sh/）を通して利用します。ログインは **Google または GitHub** を選べます。メールのワンタイムコード認証はありません。Cloudflare Access への登録は、このログインには不要です。
+自鯖缶の Kubernetes は、[Omni](https://omni.jisaba.sh/)を通して利用します。ログインは **Google または GitHub** を選べます。メールのワンタイムコード認証はありません。Cloudflare Access への登録は、このログインには不要です。
 
 ## 先に運営へ伝えるもの
 
