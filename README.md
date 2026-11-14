@@ -2,6 +2,8 @@
 
 自鯖缶の Kubernetes クラスタ `jisabakan` に、出展者のアプリを載せるためのリポジトリです。
 
+ドメインを付けて公開する場合は、[公開方法と NOC への依頼例](docs/publishing.md)を確認してください。DNS・TLS・公開経路は NOC が設定します。
+
 まず [Omni のログイン・kubectl の接続手順](docs/omni-login.md)を確認してください。Google／GitHub でログインできます。
 
 運営が Git 同期を有効にしたディレクトリ `<名前>/` の中身が、その出展者の namespace `exhibit-<名前>` に入ります。`main` に push すると、数分で ArgoCD が反映します。namespace の払い出しだけでは Git 同期は有効になりません。
