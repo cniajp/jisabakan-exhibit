@@ -2,7 +2,9 @@
 
 自鯖缶の Kubernetes クラスタ `jisabakan` に、出展者のアプリを載せるためのリポジトリです。
 
-ディレクトリ `<名前>/` の中身が、その出展者の namespace `exhibit-<名前>` に入ります。`main` に push すると、数分で ArgoCD が反映します。
+まず [Omni のログイン・kubectl の接続手順](docs/omni-login.md)を確認してください。Google／GitHub でログインできます。
+
+運営が Git 同期を有効にしたディレクトリ `<名前>/` の中身が、その出展者の namespace `exhibit-<名前>` に入ります。`main` に push すると、数分で ArgoCD が反映します。namespace の払い出しだけでは Git 同期は有効になりません。
 
 ```
 <名前>/          → namespace exhibit-<名前>
@@ -19,4 +21,4 @@
 
 `trial/` は、運営が動作を確かめるためのサンプルです。
 
-使い方の詳しい説明（kubectl のつなぎ方、マニフェストの書き方、できること・できないこと）は、運営から渡す出展者向けのガイドを見てください。
+使い方の詳しい説明（kubectl のつなぎ方、マニフェストの書き方、できること・できないこと）は、[出展者向けガイド](https://github.com/cniajp/jisabakan/blob/main/k8s/platform/exhibits/exhibitor-guide.md)を見てください。ログインについては、このリポジトリの [Omni 接続手順](docs/omni-login.md)を参照してください。
