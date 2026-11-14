@@ -19,7 +19,7 @@
 - 素の YAML なら、ディレクトリの直下のファイルだけを入れます（サブディレクトリは見ない）。`kustomization.yaml` があれば Kustomize、`Chart.yaml` があれば Helm として描画します
 - **ディレクトリから消したリソースは、クラスタからも消えます。** kubectl で直したリソースも、ここの内容に戻ります
 - **このリポジトリは public です。** パスワードやトークンなどの値は置かず、kubectl で Secret を作ってください
-- 入れられるのは namespace の中のリソースのうち、Pod・Deployment・StatefulSet・Job・Service（ClusterIP）・ConfigMap・Secret・PVC・NetworkPolicy などです。Ingress・HTTPRoute・Gateway・Certificate や、`LoadBalancer`・`NodePort` の Service は入りません。Web で見せるときは運営に相談してください
+- 入れられるのは namespace の中のリソースのうち、Pod・Deployment・StatefulSet・Job・Service（ClusterIP）・ConfigMap・Secret・PVC・NetworkPolicy などです。Ingress・HTTPRoute・Gateway・Certificate や、`LoadBalancer`・`NodePort` の Service は入りません。Web で見せるときは運営に相談してください。toka の rproxy 展示には、専用 Gateway・Route・LoadBalancer 1 個の例外があります（[toka の構成](toka/README.md)）
 
 `trial/` は、運営が動作を確かめるためのサンプルです。
 
