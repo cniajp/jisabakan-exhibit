@@ -64,4 +64,10 @@ PY
 
 ## UI
 
-UI は運営側で別に用意します。公開 URL・ログイン方法は準備が完了してから案内します。Gateway 管理の設定は UI で変更せず、このディレクトリの YAML を編集してください。
+UI は [rproxy-ui.jisaba.sh](https://rproxy-ui.jisaba.sh/) です。
+
+1. NOC から閲覧用のログイントークンを受け取ります（Omni の Google/GitHub ログインとは別です）。
+2. UI の Token 欄に入力してログインします。
+3. Gateway `exhibit-toka/toka` のノードとルールを確認します。Gateway から同期されたノードは参照専用です。
+
+Gateway 管理の設定は UI で変更せず、このディレクトリの YAML を編集してください。ログイントークンは public な Issue / PR / リポジトリに貼らないでください。
