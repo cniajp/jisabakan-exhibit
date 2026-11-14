@@ -1,0 +1,41 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: toka
+spec:
+  gatewayClassName: rproxy
+  infrastructure:
+    labels:
+      jisaba.sh/address-pool: public
+    annotations:
+      lbipam.cilium.io/ips: 202.226.7.203
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+    allowedRoutes:
+      namespaces:
+        from: Same
+  - name: https
+    protocol: HTTPS
+    port: 443
+    allowedRoutes:
+      namespaces:
+        from: Same
+    hostname: toka.jisaba.sh
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - name: toka-jisaba-sh-tls
+  - name: tcp-demo
+    protocol: TCP
+    port: 18080
+    allowedRoutes:
+      namespaces:
+        from: Same
+  - name: udp-demo
+    protocol: UDP
+    port: 18081
+    allowedRoutes:
+      namespaces:
+        from: Same

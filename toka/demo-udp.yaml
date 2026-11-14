@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-udp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-udp
+  template:
+    metadata:
+      labels:
+        app: demo-udp
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: demo-udp
+        image: python:3.13-alpine
+        ports:
+        - containerPort: 9999
+          protocol: UDP
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+        command:
+        - python
+        - -u
+        - -c
+        - "import socket\ns=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)\ns.bind(('0.0.0.0',9999))\n\
+          while True:\n data,addr=s.recvfrom(1024)\n s.sendto(data,addr)\n"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-udp
+spec:
+  type: ClusterIP
+  selector:
+    app: demo-udp
+  ports:
+  - name: udp
+    port: 9999
+    targetPort: 9999
+    protocol: UDP
